@@ -1,0 +1,61 @@
+<style>
+  h3{
+    color: purple;
+  }
+</style>
+
+<h2 class="text-center" style="color:brown">Let's Learn DataBinding</h2>
+
+<div class="border border-3 rounded-3 p-2 m-2">
+  <div>userName: {{userName}}</div>
+  <div>userName: <span [innerText]="userName"></span></div>
+  <div>userName: <span bind-innerText="userName"></span></div>
+  <hr />
+  <img src="{{img_url}}" alt="" width="300" height="350" />
+  <img [src]="img_url" alt="" width="300" height="350" />
+  <img bind-src="img_url" alt="" width="300" height="350" />
+  <hr />
+  <div>1 way: <input type="text" value="{{userName}}" /></div>
+  <div>1 way: <input type="text" class="my-1" [value]="userName" /></div>
+  <div>1 way: <input type="text" class="my-1" bind-value="userName" /></div>
+  <div>2 way: <input type="text" class="my-1" [(ngModel)]="userName" /></div>
+  <hr />
+  <button class="btn btn-primary" disabled="{{flag}}">Click Me</button>
+  <button class="btn btn-primary mx-1" [disabled]="flag">Click Me</button>
+  <button class="btn btn-primary mx-1" bind-disabled="flag">Click Me</button>
+  <button class="btn btn-primary mx-1" (click)="toggleFlag()">Toggle</button>
+  <button class="btn btn-primary mx-1" on-click="toggleFlag()">Toggle</button>
+  <hr />
+  <input type="text" id="box1" value="{{userName}}" />
+  <div>Attribute binding:</div>
+  <textarea name="" id="" [maxLength]="max_length"></textarea>
+  <textarea name="" id="" [attr.maxlength]="max_length"></textarea>
+  <textarea name="" id="" maxlength="20"></textarea>
+</div>
+
+<div class="border border-3 rounded-3 p-2 m-2">
+  <h3>template Variables</h3>
+  @let name = user.name;
+  <div>Name: {{name}}</div>
+</div>
+
+<div class="border border-3 rounded-3 p-2 m-2">
+  <h3>Addition of 2 numbers using 2-way binding:</h3>
+  <input type="number" [(ngModel)]="num1" />
+  <input type="number" [(ngModel)]="num2" />
+  <div>Addition of {{num1}} and {{num2}} is {{num1+num2}}</div>
+</div>
+
+<div class="border border-3 rounded-3 p-2 m-2">
+  <div>Addition of 2 numbers using template reference variable:</div>
+  <input type="number" id="box1" #num3 />
+  <input type="number" id="box2" ref-num4 />
+  <div>Addition of {{num3.value}} and {{num4.value}} is {{addResult}}</div>
+  <button class="btn btn-success" (click)="addition(+num3.value , +num4.value)">Add</button>
+</div>
+
+<div class="border border-3 rounded-3 p-2 m-2">
+  <div>Assignment-1</div>
+  <h1>Helooooooooooooooooooooooo Angular</h1>
+  <button class="btn btn-secondary">Show/Hide</button>
+</div>
